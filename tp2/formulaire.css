@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./Formulaire.css"/>
+  
+<style >
+label{
+    width: 100px;
+    display: inline-block;
+}
+
+#error, #resultat{
+  display : none;
+}
+
+
+.display{
+  display : block !important;
+}
+</style>
+
+</body>
+</html>
