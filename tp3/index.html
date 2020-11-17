@@ -1,33 +1,103 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>TP3</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>TP3</title>
+   
+ <script src="js/jquery-3.2.1.slim.min.js"></script>
 
-        <style>
-          body{
-              background-color: #e9ebee;              
-              font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-              font-size: 16px;
-              margin: 0 auto;
-              max-width: 800px;              
-          }
-        </style>
-        
-        <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-        <!--<link rel="stylesheet" href="style.css">-->
-        <!--<script src="main.js"></script>-->
-    </head>
-    <body>        
-        <h1>tp3</h1>
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <img src="../galilee.png" alt="Logo Galilee"/>
-    </body>
+
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+
+ <script src="js/popper.min.js"></script>
+
+ <script src="js/bootstrap.min.js"></script>
+ <script src="js/form-jquery-validation.js"></script>
+</head>
+
+
+
+  <style>
+    body {
+      background-color: #b8b9bb;
+      font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+      font-size: 20px;
+      margin: 10 auto;
+      max-width: 700px;
+    }
+
+    .modal-body img {
+
+      max-width: 100%;
+
+    }
+
+    .link {
+
+      text-decoration: rgb(15, 15, 87);
+      color:rgb(25, 139, 40);
+
+    }
+  </style>
+
+
+</head>
+<center>
+<body>
+  
+  <h1> TP AW-3 Formulaire_V2</h1>
+
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="nom">Nom:</label>
+        <input type="text" class="form-control" id="nom">
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prénom:</label>
+        <input type="text" class="form-control" id="prenom">
+      </div>
+      <div class="form-group">
+        <label for="date ">Date de naissance:</label>
+        <input type="text" class="form-control" id="date" name="date de naissance" placeholder="jj/mm/aaaa">
+      </div>
+      <div class="form-group">
+        <label for="adresse">Adresse:</label>
+        <input type="text" class="form-control" id="adresse"name="adresse " placeholder="ex:paris">
+      </div>
+      <div class="form-group">
+        <label for="email">Email </label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <button type="submit" class="btn btn-primary" id="button">Valider</button>
+    </form>
+
+  </div>
+
+</center>
+  <div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Message Modal</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="false">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Sauvegarder</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>
