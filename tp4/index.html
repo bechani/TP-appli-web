@@ -1,33 +1,198 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>TP4</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>TP4</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <style>
-          body{
-              background-color: #e9ebee;              
-              font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-              font-size: 16px;
-              margin: 0 auto;
-              max-width: 800px;              
-          }
-        </style>
-        
-        <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-        <!--<link rel="stylesheet" href="style.css">-->
-        <!--<script src="main.js"></script>-->
-    </head>
-    <body>        
-        <h1>TP4</h1>
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <img src="../galilee.png" alt="Logo Galilee"/>
-    </body>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- jquery pour pouvoir utiliser les composants JS de boostap (modal, tooltip...) -->
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/form-jquery-validation.js"></script>
+
+    <!-- CSS boostrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/popper.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- composants JS de boostrap (modal http://getbootstrap.com/docs/4.0/components/modal/ , collapse...) -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/gps.js"></script>
+    <script src="js/store.js"></script>
+
+    <!--jQuery datepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" />
+
+
+    
+
+
+
+</head>
+
+<body>
+
+    <centre><h1>TP AW Formulaire tp4</h1></centre>
+    
+    <div class="container">
+        <centre>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="nom">Nom:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="nom">
+                </div>
+
+                <div class="col-sm-1">
+                    <p class="compteur"> </p>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="prenom">Prénom:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="prenom">
+                </div>
+
+                <div class="col-sm-1">
+                    <p class="compteur"> </p>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="date">Date de naissance :</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="date" name="date" placeholder="jj/mm/aaaa">
+                </div>
+
+                <div class="col-sm-1">
+                    <p class="compteur"> </p>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="adresse">Adresse:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="adresse">
+                    <div id="map">
+                        <!--  image Google Map à mettre à jour -->                            
+                        <img alt="map" width="300" src="https://maps.googleapis.com/maps/api/staticmap?markers=latitude,longitude&zoom=14&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg">
+                    </div>
+
+                </div>
+
+                <div class="col-sm-1">
+                    <button onclick="getLocation()" type="button" class="btn btn-warning">GPS</button>
+                </div>
+
+                <div class="col-sm-1">
+                    <p class="compteur"> </p>
+                </div>
+
+            </div>
+            <div id="map">
+
+            </div>
+
+
+            <centre>
+            
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                        placeholder="Enter email">
+                </div>
+
+                <div class="col-sm-1">
+                    <p class="compteur"> </p>
+                </div>
+
+              </div>
+            </centre>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success" id="button">Valider</button>
+                </div>
+            </div>
+        </centre>
+    </div>
+
+    <!-- Tableau qui affiche les contact de la liste JSON-->
+
+    <div class="container mt-4">
+        <table id="table_contact" class="table table-bordered  table-dark table-sm">
+
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date de naissance</th>
+                    <th>Adresse postale</th>
+                    <th>Email</th>
+                </tr>
+
+            </thead>
+            <tbody>
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- le modal -->
+    <div class="modal" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Message Modal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="false">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Sauvegarder</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
 </html>
